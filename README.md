@@ -6,3 +6,6 @@ Instead of inputting data one by one, which is still possible with a bit of rest
 ## Methods
 1. By Level - The first solution generates a tree by the number of levels the user enters.
 2. By Node - The second soltuion generates a tree by the number of nodes the user enters.
+
+# Learning experience
+This project was also used to learn about smart pointers, namespaces, and binary trees. 
