@@ -16,6 +16,7 @@ struct Node {
 // Generate a binary tree by height.
 namespace Solution1 {
 	static void createTree(std::unique_ptr<Node>& root, int height, int currentLevel = 1) {
+		if (currentLevel > height) return;
 
 		int leftValue = 1 + (std::rand() % 100);
 		root->left = std::make_unique<Node>(leftValue);
@@ -42,12 +43,11 @@ namespace Solution2 {
 			Node* currentNode = nodeQueue.front();
 			nodeQueue.pop();
 			
-			if (count <= n) {
-				int leftValue = 1 + (std::rand() % 100);
-				currentNode->left = std::make_unique<Node>(leftValue);
-				nodeQueue.push(currentNode->left.get());
-				count++;
-			}
+			int leftValue = 1 + (std::rand() % 100);
+			currentNode->left = std::make_unique<Node>(leftValue);
+			nodeQueue.push(currentNode->left.get());
+			count++;
+			
 
 			if (count <= n) {
 				int rightValue = 1 + (std::rand() % 100);
@@ -86,7 +86,7 @@ int main() {
 	std::cout << "Enter the number you want: ";
 	std::cin >> number;
 
-	Solution3::createTree(root, number);
+	Solution1::createTree(root, number);
 
 	print2DUtil(root, 0);
 }
